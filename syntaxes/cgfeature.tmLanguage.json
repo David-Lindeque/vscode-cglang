@@ -1,0 +1,208 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "cgfeature",
+	"patterns": [
+		{
+			"include": "#linecomment"
+		},
+		{
+			"include": "#preprocessor"
+		},
+		{
+			"include": "#keywords"
+		},
+		
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#step"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#table"
+		},
+		{
+			"include": "#identifier"
+		},
+		{
+			"include": "#cppblock"
+		}
+	],
+	"repository": {
+		"linecomment": {
+			"patterns": [
+				{
+					"name": "comment.line.cgfeature",
+					"match": "#.*$"
+				}
+			]
+		},
+		"preprocessor": {
+			"patterns": [
+				{
+					"name": "keyword.control.import.cgfeature",
+					"match": "%import"
+				},
+				{
+					"name": "meta.preprocessor.option.cgfeature",
+					"match": "%\\w+"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.other.feature.cgfeature",
+					"match": "\\b((?i)feature)\\b"
+				},
+				{
+					"name": "keyword.other.background.cgfeature",
+					"match": "\\b((?i)background)\\b"
+				},
+				{
+					"name": "keyword.other.scenario.cgfeature",
+					"match": "\\b((?i)scenario)\\b"
+				},
+				{
+					"name": "keyword.other.outline.cgfeature",
+					"match": "\\b((?i)outline)\\b"
+				},
+				{
+					"name": "keyword.other.examples.cgfeature",
+					"match": "\\b((?i)examples)\\b"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.multiline.cgfeature",
+					"begin": "\"\"\"",
+					"end": "\"\"\"+",
+					"patterns":[
+						{
+							"name": "constant.character.escape.cgfeature",
+							"match": "\\\\\"|\\\\t"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.double.cgfeature",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.cgfeature",
+							"match": "\\\\[^xX]|\\\\[xX][0-9a-fA-F]{2}"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.lt-gt.cgfeature",
+					"match": "<.+>"
+				},
+				{
+					"name": "string.regexp.single.cgfeature",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{
+							"name": "constant.character.escape.cgfeature",
+							"match": "\\\\[^xX]|\\\\[xX][0-9a-fA-F]{2}"
+						}
+					]
+				}
+			]
+		},
+		"table": {
+			"name": "entity.name.section.table.cgfeature",
+			"begin": "(\\|)",
+			"end": "$|(?=#)",
+			"beginCaptures": {
+				"1": { "name": "punctuation.table.cgfeature" }
+			},
+			"patterns": [
+				{
+					"name": "punctuation.table.cgfeature",
+					"match": "\\|"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.cgfeature",
+					"match": "=|:"
+				}
+			]
+		},
+		"identifier": {
+			"patterns": [
+				{
+					"name": "entity.name.variable.other.identifier.cgfeature",
+					"match": "[a-zA-Z_][a-zA-Z_0-9]*"
+				}
+			]
+		},
+		"step": {
+			"name": "entity.name.function.step.cgfeature",
+			"begin": "(?i)(Given)|(When)|(Then)|(And)",
+			"end": "$|(?=#)",
+			"patterns": [
+				{
+					"name": "constant.numeric.step.cgfeature",
+					"match": "(-?[$£€]?[1-9][0-9]*((\\.[0-9]+([eE]-?[0-9]+)?)|([eE]-?[0-9]+))?)|(-??[$£€]0((\\.[0-9]+([eE]-?[0-9]+)?))|(0[xX][0-9a-fA-F]{1,8}))"
+				},
+				{
+					"name": "string.quoted.single.step.cgfeature",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{
+							"name": "constant.character.escape.cgfeature",
+							"match": "\\\\[^xX]|\\\\[xX][0-9a-fA-F]{2}"
+						},
+						{
+							"name": "variable.name.step.cgfeature",
+							"match": "<.+?>"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.double.step.cgfeature",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.cgfeature",
+							"match": "\\\\[^xX]|\\\\[xX][0-9a-fA-F]{2}"
+						},
+						{
+							"name": "variable.name.step.cgfeature",
+							"match": "<.+?>"
+						}
+					]
+				},
+				{
+					"name": "variable.name.step.cgfeature",
+					"match": "<.+?>"
+				}
+			]
+		},
+		"cppblock": {
+			"name": "meta.block.cgfeature",
+			"contentName": "meta.embedded.block.cpp.cgfeature",
+			"begin": "{",
+			"end": "}",
+			"patterns": [
+				{
+					"include": "source.cpp"
+				}
+			]
+		}
+	},
+	"scopeName": "source.cgfeature"
+}

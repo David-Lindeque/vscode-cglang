@@ -31,7 +31,13 @@
                 "scopeName": "source.cgfeature",
                 "path": "./syntaxes/cgfeature.tmLanguage.json"
             }
-        ]
+		],
+		"snippets": [
+			{
+				"language": "cgfeature",
+				"path": "./snippets.json"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -40,6 +46,7 @@
 		"postinstall": "node ./node_modules/vscode/bin/install",
 		"test": "npm run compile && node ./node_modules/vscode/bin/test"
 	},
+	"publisher": "DavidLindeque",
 	"devDependencies": {
 		"typescript": "^3.1.4",
 		"vscode": "^1.1.25",

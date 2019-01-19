@@ -1,0 +1,76 @@
+{
+	"Create Feature": {
+		"scope": "source.cgfeature",
+		"prefix": "feature",
+		"body": [
+			"Feature: $1",
+			"$0"
+		],
+		"description": "Feature section"
+	},
+	"Create Background": {
+		"scope": "source.cgfeature",
+		"prefix": "background",
+		"body": [
+			"Background:",
+			"\tGiven $0"
+		],
+		"description": "Scenario section"
+	},
+	"Create Scenario": {
+		"scope": "source.cgfeature",
+		"prefix": "scenario",
+		"body": [
+			"Scenario: $1",
+			"\tGiven $0"
+		],
+		"description": "Scenario section"
+	},
+	"Create Scenario Outline": {
+		"scope": "source.cgfeature",
+		"prefix": "outline",
+		"body": [
+			"Scenario Outline: $1",
+			"\tGiven $0",
+			"",
+			"Examples:",
+			"\t| id | "
+		],
+		"description": "Scenario section"
+	},
+	"Import statement": {
+		"scope": "source.cgfeature",
+		"prefix": "import",
+		"body": [
+			"%import <$0>"
+		],
+		"description": "Import statement"
+	},
+	"Define statement": {
+		"scope": "source.cgfeature",
+		"prefix": "define",
+		"body": [
+			"%define $1",
+			"{",
+			"\\$$1",
+			"",
+			"// $TM_FILENAME",
+			"$0",
+			"}"
+		]
+	},
+	"Grammar statement": {
+		"scope": "source.cgfeature",
+		"prefix": "grammar",
+		"body": [
+			"%grammar = ${1|ECMAScript,basic,extended,awk,grep,egrep|}",
+		]
+	},
+	"Case statement": {
+		"scope": "source.cgfeature",
+		"prefix": "case",
+		"body": [
+			"%case = ${1|sensitive,insensitive|}",
+		]
+	}
+}

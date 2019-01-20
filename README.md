@@ -34,4 +34,6 @@ The extension provides snippets for the most used bits of code. The following sn
     }
 ```
 
-<small>See https://github.com/David-Lindeque/vscode-cglang for details about the the extension.</small>
+<small>See https://github.com/David-Lindeque/vscode-cglang for details about the the extension.</small> 
+
+<small>David Lindeque</small>

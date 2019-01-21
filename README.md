@@ -2,10 +2,10 @@
 Visual Studio Code integration of cglang.
 Gherkin for C++.
 
-See [cglang](https://github.com/David-Lindeque/cglang) for the **cglang** tool and documentation.
+See [cglang](https://github.com/David-Lindeque/cglang) for the **cglang** tool, the **Gherkin** specification and documentation.
 
 ## Syntax Colourization
-The extension provides a colourization grammar. It compatible with the standard themes.
+The extension provides a colourization grammar. It is compatible with the standard themes.
 
 ## Snippets
 The extension provides snippets for the most used bits of code. The following snippet triggers are available. Give them a try.
@@ -45,4 +45,4 @@ To install this extension, either clone the repo and git it installed (i.e.: bui
 
 <small>See https://github.com/David-Lindeque/vscode-cglang for details about the extension.</small> 
 
-<small>David Lindeque</small>
+<small>- David Lindeque</small>

@@ -2,7 +2,7 @@
 	"name": "vscode-cglang",
 	"displayName": "vscode-cglang",
 	"description": "Language support for the cglang compiler",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"repository": "https://github.com/David-Lindeque/vscode-cglang",
 	"engines": {
 		"vscode": "^1.30.0"
@@ -10,27 +10,28 @@
 	"categories": [
 		"Programming Languages"
 	],
-	"activationEvents": [
-	],
+	"activationEvents": [],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
-		],
+		"commands": [],
 		"languages": [
 			{
-                "id": "cgfeature",
-                "aliases": ["cgfeature"],
-                "extensions": [".cgfeature"],
-                "configuration": "./cgfeature.language-configuration.json"
-            }
+				"id": "cgfeature",
+				"aliases": [
+					"cgfeature"
+				],
+				"extensions": [
+					".cgfeature"
+				],
+				"configuration": "./cgfeature.language-configuration.json"
+			}
 		],
-        "grammars": 
-        [
-            {
-                "language": "cgfeature",
-                "scopeName": "source.cgfeature",
-                "path": "./syntaxes/cgfeature.tmLanguage.json"
-            }
+		"grammars": [
+			{
+				"language": "cgfeature",
+				"scopeName": "source.cgfeature",
+				"path": "./syntaxes/cgfeature.tmLanguage.json"
+			}
 		],
 		"snippets": [
 			{

@@ -29,6 +29,13 @@ The extension provides snippets for the most used bits of code. The following sn
                 "settings": {
                     "fontStyle": "italic"
                 }
+            },
+            {
+                "name": "meta.preprocessor.cglang.variable.cgfeature",
+                "scope": "meta.preprocessor.cglang.variable.cgfeature",
+                "settings": {
+                    "fontStyle": "bold"
+                }
             }
         ]
     }

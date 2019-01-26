@@ -199,7 +199,285 @@
 			"end": "}",
 			"patterns": [
 				{
-					"include": "source.cpp"
+					"include": "#source.cpp"
+				}
+			]
+		},
+		"source.cpp": {
+			"patterns": [
+				{
+					"begin": "{",
+					"end": "}",
+					"patterns": [
+						{
+							"include": "#source.cpp"
+						}
+					]
+				},
+				{
+					"include": "#cglang.variable.cpp"
+				},
+				{
+					"include": "#comments.source.cpp"
+				},
+				{
+					"include": "#typenames.source.cpp"
+				},
+				{
+					"include": "#keywords.source.cpp"
+				},
+				{
+					"include": "#numbers.source.cpp"
+				},
+				{
+					"include": "#strings.source.cpp"
+				},
+				{
+					"include": "#preprocessor.source.cpp"
+				},
+				{
+					"include": "#identifiers.source.cpp"
+				}
+			]
+		},
+		"cglang.variable.cpp": {
+			"patterns": [
+				{
+					"name": "meta.preprocessor.cglang.variable.cgfeature",
+					"match": "\\$(?:(?:[a-zA-Z_][a-zA-Z_0-9]*)|(?:\\d+))"
+				}
+			]
+		},
+		"comments.source.cpp": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.cpp.cgfeature",
+					"begin": "//",
+					"end": "$",
+					"patterns": [
+						{
+							"include": "#cglang.variable.cpp"
+						}
+					]
+				},
+				{
+					"name": "comment.block.c.cgfeature",
+					"begin": "/\\*",
+					"end": "\\*/",
+					"patterns": [
+						{
+							"include": "#cglang.variable.cpp"
+						}
+					]
+				}
+			]
+		},
+		"typenames.source.cpp": {
+			"patterns": [
+				{
+					"name": "meta.enum-union-block.c.cgfeature",
+					"match": "\\b(enum(?:\\s+class)?|union)\\b\\s*([a-zA-Z_][a-zA-Z_0-9]*)?",
+					"captures": {
+						"1": {
+							"name": "storage.type.c.cgfeature"
+						},
+						"2": {
+							"name": "entity.name.type.c.cgfeature"
+						}
+					}
+				},
+				{
+					"name": "meta.namespace-class-struct-block.c.cgfeature",
+					"match": "\\b(namespace|class|struct)\\b\\s*([a-zA-Z_][a-zA-Z_0-9]*)?",
+					"captures": {
+						"1": {
+							"name": "storage.type.cpp.cgfeature"
+						},
+						"2": {
+							"name": "entity.name.type.cpp.cgfeature"
+						}
+					}
+				}
+			]
+		},
+		"keywords.source.cpp": {
+			"patterns": [
+				{
+					"name": "support.type.posix-reserved.c.cgfeature",
+					"match": "\\b__wchar_t\\b"
+				},
+				{
+					"name": "storage.type.c.cgfeature",
+					"match": "\\b(auto|bool|char|double|float|int|long|short|signed|typedef|unsigned|void)\\b"
+				},
+				{
+					"name": "storage.type.cpp.cgfeature",
+					"match": "\\b(char16_t|char32_t|decltype)\\b"
+				},
+				{
+					"name": "storage.type.template.cpp.cgfeature",
+					"match": "\\b(template)\\b"
+				},
+				{
+					"name": "storage.modifier.c.cgfeature",
+					"match": "\\b(extern|inline|register|static|volatile|const)\\b"
+				},
+				{
+					"name": "storage.modifier.cpp.cgfeature",
+					"match": "\\b(constexpr|explicit|friend|mutable|noexcept|typename|virtual)\\b"
+				},
+				{
+					"name": "storage.modifier.cpp.cgfeature",
+					"match": "\\b(private|protected|public):"
+				},
+				{
+					"name": "keyword.control.c.cgfeature",
+					"match": "\\b(break|case|catch|continue|default|do|else|for|goto|if|return|switch|while)\\b"
+				},
+				{
+					"name": "keyword.control.cpp.cgfeature",
+					"match": "\\b(delete|each|new|operator|throw|try|using)\\b"
+				},
+				{
+					"name": "keyword.operator.cast.cpp.cgfeature",
+					"match": "\\b(const_cast|dynamic_cast|reinterpret_cast|static_cast)\\b"
+				},
+				{
+					"name": "keyword.operator.sizeof.cpp.cgfeature",
+					"match": "\\b(sizeof)\\b"
+				},
+				{
+					"name": "keyword.operator.cpp.cgfeature",
+					"match": "\\b(typeid)\\b"
+				},
+				{
+					"name": "entity.name.type.cpp.cgfeature",
+					"match": "\\b(event)\\b"
+				},
+				{
+					"name": "constant.language.c.cgfeature",
+					"match": "\\b(false|nullptr|true)\\b"
+				},
+				{
+					"name": "variable.language.this.cpp.cgfeature",
+					"match": "\\b(this)\\b"
+				}
+			]
+		},
+		"numbers.source.cpp": {
+			"patterns": [
+				{
+					"name": "constant.numeric.c.float.cgfeature",
+					"match": "\\b(?:\\d+\\.\\d+)(?:(?:e|E)\\d*)?(?i:ul{0,2}|l{0,2})?\\b"
+				},
+				{
+					"name": "constant.numeric.c.integral.octal.cgfeature",
+					"match": "\\b0\\d*(?i:ul{0,2}|l{0,2})?\\b"
+				},
+				{
+					"name": "constant.numeric.c.integral.hex.cgfeature",
+					"match": "\\b0(?:x|X)[0-9a-fA-F]+(?i:ul{0,2}|l{0,2})?\\b"
+				},
+				{
+					"name": "constant.numeric.c.binary.cgfeature",
+					"match": "\\b0(?:b|B)(?:0|1)+(?i:ul{0,2}|l{0,2})?\\b"
+				},
+				{
+					"name": "constant.numeric.c.integral.decimal.cgfeature",
+					"match": "\\b\\d(?:\\d|')*(?i:ul{0,2}|l{0,2})?"
+				}
+			]
+		},
+		"strings.source.cpp": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.raw.cpp.cgfeature",
+					"begin": "(?:u8|L|u|U)?R\"\\(",
+					"end": "\\)\"s?",
+					"patterns": [
+						{
+							"include": "#cglang.variable.cpp"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.double.cpp.cgfeature",
+					"begin": "(?:u8|L|u|U)?\"",
+					"end": "\"s?",
+					"patterns": [
+						{
+							"include": "#cglang.variable.cpp"
+						},
+						{
+							"name": "constant.character.escape.cpp.cgfeature",
+							"match": "\\\\."
+						}
+					]
+				},
+				{
+					"name": "string.quoted.single.c.cgfeature",
+					"begin": "(?:u8|L|u|U)?'",
+					"end": "'",
+					"patterns": [
+						{
+							"include": "#cglang.variable.cpp"
+						},
+						{
+							"name": "constant.character.escape.c.cgfeature",
+							"match": "\\\\."
+						}
+					]
+				}
+			]
+		},
+		"preprocessor.source.cpp": {
+			"patterns": [
+				{
+					"name": "keyword.control.directive.include.c.cgfeature",
+					"match": "#include\\s*(<.*?>)?",
+					"captures": {
+						"1": {
+							"name": "string.quoted.double.lt-gt.c.cgfeature",
+							"patterns": [
+								{
+									"include": "#cglang.variable.cpp"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "meta.preprocessor.include.c.cgfeature",
+					"match": "#using\\b"
+				},
+				{
+					"name": "keyword.control.directive.c.cgfeature",
+					"match": "#(define|error|import|undef|ifdef|elif|if|include|else|ifdef|line|endif|ifndef|pragma)\\b"
+				}
+			]
+		},
+		"identifiers.source.cpp": {
+			"patterns": [
+				{
+					"name": "entity.name.function.c.cgfeature",
+					"match": "\\.?[a-zA-Z_][a-zA-Z_0-9]*(\\$(?:(?:[a-zA-Z_][a-zA-Z_0-9]*)|(?:\\d+)))?\\s*(?=\\()",
+					"captures": {
+						"1": {
+							"name": "meta.preprocessor.cglang.variable.cgfeature"
+						}
+					}
+				},
+				{
+					"name": "meta.member.c.cgfeature",
+					"match": "(?:\\.|->)([a-zA-Z_][a-zA-Z_0-9]*(\\$(?:(?:[a-zA-Z_][a-zA-Z_0-9]*)|(?:\\d+)))?)[^\\(]",
+					"captures": {
+						"1": {
+							"name": "variable.other.member.c.cgfeature"
+						},
+						"2": {
+							"name": "meta.preprocessor.cglang.variable.cgfeature"
+						}
+					}
 				}
 			]
 		}

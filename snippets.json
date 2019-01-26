@@ -63,14 +63,14 @@
 		"scope": "source.cgfeature",
 		"prefix": "grammar",
 		"body": [
-			"%grammar = ${1|ECMAScript,basic,extended,awk,grep,egrep|}",
+			"%grammar = ${1|ECMAScript,basic,extended,awk,grep,egrep|}"
 		]
 	},
 	"Case statement": {
 		"scope": "source.cgfeature",
 		"prefix": "case",
 		"body": [
-			"%case = ${1|sensitive,insensitive|}",
+			"%case = ${1|sensitive,insensitive|}"
 		]
 	}
 }

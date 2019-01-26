@@ -459,10 +459,13 @@
 		"identifiers.source.cpp": {
 			"patterns": [
 				{
-					"name": "entity.name.function.c.cgfeature",
-					"match": "(?:\\.|->)?[a-zA-Z_][a-zA-Z_0-9]*(\\$(?:(?:[a-zA-Z_][a-zA-Z_0-9]*)|(?:\\d+)))?\\s*(?=\\()",
+					"name": "meta.member.c.cgfeature",
+					"match": "(?:\\.|->)?([a-zA-Z_][a-zA-Z_0-9]*(\\$(?:(?:[a-zA-Z_][a-zA-Z_0-9]*)|(?:\\d+)))?)\\s*(?=\\()",
 					"captures": {
 						"1": {
+							"name": "entity.name.function.c.cgfeature"
+						},
+						"2": {
 							"name": "meta.preprocessor.cglang.variable.cgfeature"
 						}
 					}

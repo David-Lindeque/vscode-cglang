@@ -43,7 +43,7 @@ The extension provides snippets for the most used bits of code. The following sn
 
 ## Installation
 To install this extension, either clone the repo and git it installed (i.e.: build your own vsix file), or download and install the vsix file included in this repository. In order to do this, follow the following steps:
-* Download the .vsix file (https://github.com/David-Lindeque/vscode-cglang/blob/master/vscode-cglang-0.0.1.vsix).
+* Download the .vsix file (https://github.com/David-Lindeque/vscode-cglang/blob/master/vscode-cglang-*.vsix).
 * In VSCode, on the 'Extensions' tab, click on the '...' and select 'Install from VSIX...'
 * Select the downloaded .vsix file and click 'Install'.
 * You might have to restart VSCode.
